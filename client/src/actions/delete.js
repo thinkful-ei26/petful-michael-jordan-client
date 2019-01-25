@@ -6,21 +6,15 @@ export const deleteAdoptionCat = animal => ({
   animal
 });
 
-export const DELETE_ADOPTION_CAT_ERROR = "DELETE_ADOPTION_CAT_ERROR";
-export const deletedoptionCatError = error => ({
-  type: DELETE_ADOPTION_CAT_ERROR,
-  error
-});
-
 export const DELETE_ADOPTION_DOG = "DELETE_ADOPTION_DOG";
 export const deleteAdoptionDog = animal => ({
   type: DELETE_ADOPTION_DOG,
   animal
 });
 
-export const DELETE_ADOPTION_DOG_ERROR = "DELETE_ADOPTION_DOG_ERROR";
-export const deleteAdoptionDogError = error => ({
-  type: DELETE_ADOPTION_DOG_ERROR,
+export const DELETE_ADOPTION_ERROR = "DELETE_ADOPTION_DOG_ERROR";
+export const deleteAdoptionError = error => ({
+  type: DELETE_ADOPTION_ERROR,
   error
 });
 
