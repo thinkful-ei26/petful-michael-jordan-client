@@ -23,7 +23,7 @@ const adoptionReducer = (state = initialState, action) => {
     return Object.assign({}, state, {
       deleted: true
     });
-  }
+  } 
   if (action.type === DELETE_ADOPTION_DOG) {
     return Object.assign({}, state, {
       deleted: true

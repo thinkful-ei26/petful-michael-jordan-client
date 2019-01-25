@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { connect } from "react-redux";
 import { fetchDogs, fetchCats } from "./actions/adopt";
+import { deleteDogs, deleteCats } from './actions/delete';
 
 class App extends React.Component {
   componentDidMount() {
@@ -31,7 +32,9 @@ class App extends React.Component {
         <div className="App">
           <button
             onClick={() => {
-              this.props.dispatch(setName(this.props.dog.name));
+              // this.props.dispatch(setName(this.props.dog.name));
+              this.props.dispatch(deleteDogs());
+              this.props.dispatch(deleteCats());
               console.log(this.props.dog.name);
               console.log(this.props.dog);
             }}
@@ -42,7 +45,7 @@ class App extends React.Component {
           <img className="photo" alt="dog" src={this.props.cat.imageURL} />
           <button
             onClick={() => {
-              this.props.dispatch(setName(this.props.cat.name));
+              // this.props.dispatch(setName(this.props.cat.name));
               console.log(this.props.cat.name);
             }}
           >

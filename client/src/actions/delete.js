@@ -18,25 +18,17 @@ export const deleteAdoptionError = error => ({
   error
 });
 
-export const fetchDogs = () => dispatch => {
+export const deleteDogs = () => dispatch => {
   // dispatch(setDogLoading);
   fetch("http://localhost:8080/api/dog", {
-      method: DELETE
+      method: 'DELETE'
   })
-    .then(res => {
-      return res.json();
-    })
-    .then(data => dispatch(deleteAdoptionDog(data)))
     .catch(err => console.log(err));
 };
 
-export const fetchCats = () => dispatch => {
+export const deleteCats = () => dispatch => {
   fetch("http://localhost:8080/api/cat", {
-      method: DELETE
+      method: 'DELETE'
   })
-    .then(res => {
-      return res.json();
-    })
-    .then(data => dispatch(deleteAdoptionCat(data)))
     .catch(err => console.log(err));
 };
