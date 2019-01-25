@@ -26,7 +26,9 @@ export const deleteAdoptionDogError = error => ({
 
 export const fetchDogs = () => dispatch => {
   // dispatch(setDogLoading);
-  fetch("http://localhost:8080/api/dog")
+  fetch("http://localhost:8080/api/dog", {
+      method: DELETE
+  })
     .then(res => {
       return res.json();
     })
@@ -35,7 +37,9 @@ export const fetchDogs = () => dispatch => {
 };
 
 export const fetchCats = () => dispatch => {
-  fetch("http://localhost:8080/api/cat")
+  fetch("http://localhost:8080/api/cat", {
+      method: DELETE
+  })
     .then(res => {
       return res.json();
     })
