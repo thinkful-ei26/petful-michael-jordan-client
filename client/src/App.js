@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import { Link } from "react-router-dom"
 import "./App.css";
 import { connect } from "react-redux";
 import { fetchDogs, fetchCats, setName } from "./actions/adopt";
@@ -36,29 +36,38 @@ class App extends React.Component {
           <div className="photo">
             <ul>
               <li>
+                <Link to={{
+                  pathname: './moreinfo',
+                  state: {
+                    animal: this.props.dog,
+                  }
+                }}>
+                Learn more about {this.props.dog.name}
+                </Link>
                 <img alt="dog" src={this.props.dog.imageURL} />
                 <button
                   onClick={() => {
                     this.props.dispatch(setName(this.props.dog.name));
                     this.props.dispatch(deleteDogs());
-                    console.log(this.props.dog.name);
-                    console.log(this.props.dog);
                   }}
                 >
                   Adopt {this.props.dog.name}
                 </button>
               </li>
               <li>
-                <img
-                  className="photo"
-                  alt="cat"
-                  src={this.props.cat.imageURL}
-                />
+              <Link to={{
+                  pathname: './moreinfo',
+                  state: {
+                    animal: this.props.cat,
+                  }
+                }}>
+                Learn more about {this.props.cat.name}
+                </Link>
+                <img className="photo" alt="cat" src={this.props.cat.imageURL}/>
                 <button
                   onClick={() => {
                     this.props.dispatch(setName(this.props.cat.name));
                     this.props.dispatch(deleteCats());
-                    console.log(this.props.cat.name);
                   }}
                 >
                   Adopt {this.props.cat.name}
@@ -66,7 +75,6 @@ class App extends React.Component {
               </li>
             </ul>
           </div>
-          <span>{this.props.name}</span>
         </div>
       );
     }
