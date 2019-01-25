@@ -10,7 +10,7 @@ class App extends React.Component {
     this.props.dispatch(fetchCats());
   }
   render() {
-    if (this.props.dog === null) {
+    if (this.props.dog === null || this.props.cat === null) {
       return (
         <div className="App">
           <button
@@ -29,11 +29,13 @@ class App extends React.Component {
           <button
             onClick={() => {
               console.log(this.props.dog.name);
+              console.log(this.props.dog);
             }}
           >
             Get Dog
           </button>
-          <img src={this.props.dog.imgUrl} />
+          <img className="photo" alt="dog" src={this.props.dog.imageURL} />
+          <img className="photo" alt="dog" src={this.props.cat.imageURL} />
           <button
             onClick={() => {
               console.log(this.props.cat.name);
