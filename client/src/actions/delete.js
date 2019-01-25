@@ -1,4 +1,5 @@
 // import { API_BASE_URL } from "../config";
+import { fetchCats, fetchDogs } from "../actions/adopt";
 
 export const DELETE_ADOPTION_CAT = "DELETE_ADOPTION_CAT";
 export const deleteAdoptionCat = animal => ({
@@ -21,14 +22,16 @@ export const deleteAdoptionError = error => ({
 export const deleteDogs = () => dispatch => {
   // dispatch(setDogLoading);
   fetch("http://localhost:8080/api/dog", {
-      method: 'DELETE'
+    method: "DELETE"
   })
+    .then(() => dispatch(fetchDogs()))
     .catch(err => console.log(err));
 };
 
 export const deleteCats = () => dispatch => {
   fetch("http://localhost:8080/api/cat", {
-      method: 'DELETE'
+    method: "DELETE"
   })
+    .then(() => dispatch(fetchCats()))
     .catch(err => console.log(err));
 };

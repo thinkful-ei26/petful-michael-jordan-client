@@ -52,3 +52,15 @@ export const fetchCats = () => dispatch => {
     .then(data => dispatch(setAdoptionCat(data)))
     .catch(err => console.log(err));
 };
+
+// set name
+
+export const SET_NAME = "SET_NAME";
+export const setName = name => ({
+  type: SET_NAME,
+  name
+});
+
+export const setNewName = name => dispatch => {
+  dispatch(setName(name));
+};

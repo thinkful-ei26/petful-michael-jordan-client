@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { connect } from "react-redux";
-import { fetchDogs, fetchCats } from "./actions/adopt";
-import { deleteDogs, deleteCats } from './actions/delete';
+import { fetchDogs, fetchCats, setName } from "./actions/adopt";
+import { deleteDogs, deleteCats } from "./actions/delete";
 
 class App extends React.Component {
   componentWillMount() {
@@ -13,7 +13,7 @@ class App extends React.Component {
 
   displayAdopted(name) {}
 
-  onLoad(){
+  onLoad() {
     this.props.dispatch(fetchDogs());
     this.props.dispatch(fetchCats());
   }
@@ -35,12 +35,13 @@ class App extends React.Component {
     } else {
       return (
         <div className="App">
-          <header>Michael and Jordan's Adoption Agency</header><br/><br/>
+          <header>Michael and Jordan's Adoption Agency</header>
+          <br />
+          <br />
           <button
             onClick={() => {
-              // this.props.dispatch(setName(this.props.dog.name));
+              this.props.dispatch(setName(this.props.dog.name));
               this.props.dispatch(deleteDogs());
-              this.props.dispatch(deleteCats());
               console.log(this.props.dog.name);
               console.log(this.props.dog);
             }}
@@ -51,7 +52,8 @@ class App extends React.Component {
           <img className="photo" alt="dog" src={this.props.cat.imageURL} />
           <button
             onClick={() => {
-              // this.props.dispatch(setName(this.props.cat.name));
+              this.props.dispatch(setName(this.props.cat.name));
+              this.props.dispatch(deleteCats());
               console.log(this.props.cat.name);
             }}
           >
