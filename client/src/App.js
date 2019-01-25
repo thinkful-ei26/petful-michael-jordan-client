@@ -28,30 +28,44 @@ class App extends React.Component {
     } else {
       return (
         <div className="App-Content">
-          <header>Michael and Jordan's Adoption Agency</header>
+          <div className="box">
+            <h1>Michael and Jordan's Adoption Agency</h1>
+          </div>
           <br />
           <br />
-          <button
-            onClick={() => {
-              this.props.dispatch(setName(this.props.dog.name));
-              this.props.dispatch(deleteDogs());
-              console.log(this.props.dog.name);
-              console.log(this.props.dog);
-            }}
-          >
-            Get Dog
-          </button>
-          <img className="photo" alt="dog" src={this.props.dog.imageURL} />
-          <img className="photo" alt="dog" src={this.props.cat.imageURL} />
-          <button
-            onClick={() => {
-              this.props.dispatch(setName(this.props.cat.name));
-              this.props.dispatch(deleteCats());
-              console.log(this.props.cat.name);
-            }}
-          >
-            Get Cat
-          </button>
+          <div className="photo">
+            <ul>
+              <li>
+                <img alt="dog" src={this.props.dog.imageURL} />
+                <button
+                  onClick={() => {
+                    this.props.dispatch(setName(this.props.dog.name));
+                    this.props.dispatch(deleteDogs());
+                    console.log(this.props.dog.name);
+                    console.log(this.props.dog);
+                  }}
+                >
+                  Adopt {this.props.dog.name}
+                </button>
+              </li>
+              <li>
+                <img
+                  className="photo"
+                  alt="cat"
+                  src={this.props.cat.imageURL}
+                />
+                <button
+                  onClick={() => {
+                    this.props.dispatch(setName(this.props.cat.name));
+                    this.props.dispatch(deleteCats());
+                    console.log(this.props.cat.name);
+                  }}
+                >
+                  Adopt {this.props.cat.name}
+                </button>
+              </li>
+            </ul>
+          </div>
           <span>{this.props.name}</span>
         </div>
       );
