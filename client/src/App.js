@@ -6,12 +6,17 @@ import { fetchDogs, fetchCats } from "./actions/adopt";
 import { deleteDogs, deleteCats } from './actions/delete';
 
 class App extends React.Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.dispatch(fetchDogs());
     this.props.dispatch(fetchCats());
   }
 
   displayAdopted(name) {}
+
+  onLoad(){
+    this.props.dispatch(fetchDogs());
+    this.props.dispatch(fetchCats());
+  }
 
   render() {
     if (this.props.dog === null || this.props.cat === null) {
@@ -30,6 +35,7 @@ class App extends React.Component {
     } else {
       return (
         <div className="App">
+          <header>Michael and Jordan's Adoption Agency</header><br/><br/>
           <button
             onClick={() => {
               // this.props.dispatch(setName(this.props.dog.name));
