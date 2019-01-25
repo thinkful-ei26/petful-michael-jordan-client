@@ -9,6 +9,9 @@ class App extends React.Component {
     this.props.dispatch(fetchDogs());
     this.props.dispatch(fetchCats());
   }
+
+  displayAdopted(name) {}
+
   render() {
     if (this.props.dog === null || this.props.cat === null) {
       return (
@@ -28,6 +31,7 @@ class App extends React.Component {
         <div className="App">
           <button
             onClick={() => {
+              this.props.dispatch(setName(this.props.dog.name));
               console.log(this.props.dog.name);
               console.log(this.props.dog);
             }}
@@ -38,11 +42,13 @@ class App extends React.Component {
           <img className="photo" alt="dog" src={this.props.cat.imageURL} />
           <button
             onClick={() => {
+              this.props.dispatch(setName(this.props.cat.name));
               console.log(this.props.cat.name);
             }}
           >
             Get Cat
           </button>
+          <span>{this.props.name}</span>
         </div>
       );
     }
@@ -51,7 +57,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => ({
   dog: state.adoptable.dog,
-  cat: state.adoptable.cat
+  cat: state.adoptable.cat,
+  name: state.adoptable.name
 });
 
 export default connect(mapStateToProps)(App);

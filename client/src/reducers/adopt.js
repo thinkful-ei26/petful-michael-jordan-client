@@ -1,11 +1,11 @@
 import { SET_ADOPTION_DOG, SET_ADOPTION_CAT } from "../actions/adopt";
 import { DELETE_ADOPTION_DOG, DELETE_ADOPTION_CAT } from "../actions/delete";
 
-
 const initialState = {
   dog: null,
   cat: null,
-  deleted: false
+  deleted: false,
+  name: null
 };
 
 const adoptionReducer = (state = initialState, action) => {
