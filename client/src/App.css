@@ -71,7 +71,7 @@ li {
      border-radius: 5px;
      /* background-color: white; */
      display: grid;
-     grid-template-rows: 80% 20%; 
+     grid-template-rows: 10% 70% 20%; 
      grid-gap: 40px;
      margin: 0px; 
      font-weight: 200; 
