@@ -8,12 +8,12 @@ const initialState = {
 const adoptionReducer = (state = initialState, action) => {
   if (action.type === SET_ADOPTION_DOG) {
     return Object.assign({}, state, {
-      dog: action.dog
+      dog: action.animal
     });
   }
   if (action.type === SET_ADOPTION_CAT) {
     return Object.assign({}, state, {
-      cat: action.cat
+      cat: action.animal
     });
   }
   return state;

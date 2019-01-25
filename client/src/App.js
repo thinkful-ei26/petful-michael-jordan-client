@@ -2,20 +2,48 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { connect } from "react-redux";
-import { fetchAdoptions } from "./actions/adopt";
+import { fetchDogs, fetchCats } from "./actions/adopt";
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchAdoptions());
+    this.props.dispatch(fetchDogs());
+    this.props.dispatch(fetchCats());
   }
   render() {
-    return (
-      <div className="App">
-        <span>{this.props.dog}</span>
-        <span>{this.props.dog}</span>
-        <button onclick={() => this.props.dispatch(fetchAdoptions)} />
-      </div>
-    );
+    if (this.props.dog === null) {
+      return (
+        <div className="App">
+          <button
+            onClick={() => {
+              this.props.dispatch(fetchDogs());
+              this.props.dispatch(fetchCats());
+            }}
+          >
+            Get Adoptions
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div className="App">
+          <button
+            onClick={() => {
+              console.log(this.props.dog.name);
+            }}
+          >
+            Get Dog
+          </button>
+          <img src={this.props.dog.imgUrl} />
+          <button
+            onClick={() => {
+              console.log(this.props.cat.name);
+            }}
+          >
+            Get Cat
+          </button>
+        </div>
+      );
+    }
   }
 }
 

@@ -34,9 +34,21 @@ export const setAdoptionDogError = error => ({
   error
 });
 
-export const fetchAdoptions = () => dispatch => {
+export const fetchDogs = () => dispatch => {
   // dispatch(setDogLoading);
-  fetch("https://localhost:8080/api/dog")
+  fetch("http://localhost:8080/api/dog")
+    .then(res => {
+      return res.json();
+    })
     .then(data => dispatch(setAdoptionDog(data)))
+    .catch(err => console.log(err));
+};
+
+export const fetchCats = () => dispatch => {
+  fetch("http://localhost:8080/api/cat")
+    .then(res => {
+      return res.json();
+    })
+    .then(data => dispatch(setAdoptionCat(data)))
     .catch(err => console.log(err));
 };
