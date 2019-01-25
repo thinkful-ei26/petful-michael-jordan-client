@@ -11,13 +11,6 @@ class App extends React.Component {
     this.props.dispatch(fetchCats());
   }
 
-  displayAdopted(name) {}
-
-  onLoad() {
-    this.props.dispatch(fetchDogs());
-    this.props.dispatch(fetchCats());
-  }
-
   render() {
     if (this.props.dog === null || this.props.cat === null) {
       return (
@@ -34,7 +27,7 @@ class App extends React.Component {
       );
     } else {
       return (
-        <div className="App">
+        <div className="App-Content">
           <header>Michael and Jordan's Adoption Agency</header>
           <br />
           <br />

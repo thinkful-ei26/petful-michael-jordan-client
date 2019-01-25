@@ -41,7 +41,7 @@ export const fetchDogs = () => dispatch => {
       return res.json();
     })
     .then(data => dispatch(setAdoptionDog(data)))
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
 };
 
 export const fetchCats = () => dispatch => {
@@ -50,10 +50,8 @@ export const fetchCats = () => dispatch => {
       return res.json();
     })
     .then(data => dispatch(setAdoptionCat(data)))
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
 };
-
-// set name
 
 export const SET_NAME = "SET_NAME";
 export const setName = name => ({
